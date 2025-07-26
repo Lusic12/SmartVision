@@ -1,0 +1,6 @@
+# Bỏ thư mục build
+build/
+# File executable
+*.out
+# VSCode
+.vscode/
