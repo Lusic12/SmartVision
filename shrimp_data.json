@@ -1,1 +1,12 @@
-{"shrimp_count": 1, "timestamp": 1753286053}
+{
+  "shrimp_total": 100,
+  "shrimp_current": 5,
+  "shrimp_small": 20,
+  "shrimp_medium": 30,
+  "shrimp_large": 50,
+  "shrimp_weight": 24.5,
+  "shrimp_total_weight": 550.2,
+  "temperature": 29.5,
+  "humidity": 75.1,
+  "timestamp": 1722909000
+}
