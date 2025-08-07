@@ -31,10 +31,19 @@ try:
         print(" Send Direction2...")
         cmd("--Direction2")
         try:
-            with serial.Serial('/dev/ttyUSB0', 115200, timeout=20) as ser:
-                if ser.in_waiting:
-                    uart_data = ser.readline().decode('utf-8', errors='ignore').strip()
-                    print(f" UART Received: {uart_data}")
+            with serial.Serial('/dev/ttyUSB0', 115200, timeout=1) as ser:
+                start_time = time.time()
+                received_ok = False
+                while time.time() - start_time < 5:
+                    if ser.in_waiting:
+                        uart_data = ser.readline().decode('utf-8', errors='ignore').strip()
+                        print(f" UART Received: {uart_data}")
+                        if uart_data == "OK":
+                            received_ok = True
+                            break
+                    time.sleep(0.1)
+                if not received_ok:
+                    print("Timeout: Did not receive 'OK' within 5 seconds.")
         except Exception as e:
             print(f"UART error: {e}")
 
