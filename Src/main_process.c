@@ -5,8 +5,8 @@ const struct option long_options[] = {
     {"Direction1", no_argument, 0, 0},
     {"Direction2", no_argument, 0, 0},
     {"Direction3", no_argument, 0, 0},
-    {"Led_On",     no_argument, 0, 0},
-    {"Led_Off",    no_argument, 0, 0},
+    {"Sys_On",     no_argument, 0, 0},
+    {"Sys_Off",    no_argument, 0, 0},
     {"Send_Status",no_argument, 0, 0},
     {"Stop_System",no_argument, 0, 0},
     {"Reflash",    no_argument, 0, 0},
@@ -59,13 +59,6 @@ int main(int argc, char **argv) {
                         fprintf(stderr, "Unknown long option.\n");
                         exit(1);
                 }
-                break;
-            case 'B':  // -B for baudrate
-                baudrate = atoi(optarg);
-                if (map_to_speed(baudrate) == B115200) baudrate = 115200; // Ensure valid baudrate
-                break;
-            case 'd':  // -d for device
-                device = optarg;
                 break;
             case '?':  // Option not recognized!
                 fprintf(stderr, "Usage: ./uart_app [--direction1] [--relay_on] etc. [-B<baud>] [-d<device>]\n");
