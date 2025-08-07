@@ -4,19 +4,6 @@ project(DCS_Test C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GPIOD REQUIRED libgpiod)
-
-message(STATUS "GPIOD include dirs: ${GPIOD_INCLUDE_DIRS}")
-message(STATUS "GPIOD library dirs: ${GPIOD_LIBRARY_DIRS}")
-message(STATUS "GPIOD libraries: ${GPIOD_LIBRARIES}")
-
-pkg_check_modules(NCURSES REQUIRED ncurses)
-
-message(STATUS "NCURSES include dirs: ${NCURSES_INCLUDE_DIRS}")
-message(STATUS "NCURSES library dirs: ${NCURSES_LIBRARY_DIRS}")
-message(STATUS "NCURSES libraries: ${NCURSES_LIBRARIES}")
-
 # Include directories
 set(INCLUDE_DIRS
     esp_command
