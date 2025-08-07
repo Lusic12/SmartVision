@@ -12,7 +12,4 @@
 #include <gpiod.h>
 #include <stdint.h>
 #include <getopt.h>     // For command line option parsing
-#include <semaphore.h>  // For semaphores
-#include <ncurses.h> // For ncurses library
-
 #endif
