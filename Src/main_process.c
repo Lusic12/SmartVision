@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
                         break;
                     case 7:  // -- Reflash
                         uint8_t ret = system("bash -c 'source ../../esptool-env/bin/activate && "
-                        "esptool --chip esp32 --port /dev/ttyUSB0 write-flash 0x10000 dcs-test.bin && "
+                        "esptool --chip esp32 --port /dev/ttyUSB0 write_flash 0x10000 dcs-test.bin && "
                         "deactivate'");
                         Clear_Startup_UART(uart_fd, 10000);
                         break;
