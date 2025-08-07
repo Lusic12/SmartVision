@@ -1,5 +1,6 @@
 import subprocess
 import time
+import serial
 
 # Simple function to run main_app commands
 def cmd(option):
@@ -23,12 +24,20 @@ try:
         cmd("--Sys_On")
         time.sleep(1)
 
-        print(" S Off...")
+        print(" Sys Off...")
         cmd("--Sys_Off")
         time.sleep(1)
-        
-        
-        
+
+        print(" Send Direction2...")
+        cmd("--Direction2")
+        try:
+            with serial.Serial('/dev/ttyUSB0', 115200, timeout=20) as ser:
+                if ser.in_waiting:
+                    uart_data = ser.readline().decode('utf-8', errors='ignore').strip()
+                    print(f" UART Received: {uart_data}")
+        except Exception as e:
+            print(f"UART error: {e}")
+
 except KeyboardInterrupt:
     print("\n\n LED blink stopped!")
     print("Turning LED off...")
