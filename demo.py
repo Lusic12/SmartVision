@@ -96,7 +96,7 @@ class InteractiveController:
             print(f"💥 Error executing command: {e}")
             return False
 
-    def wait_for_uart_response(self, timeout=10):
+    def wait_for_uart_response(self, timeout=20):
         """Chờ UART response với timeout"""
         try:
             with serial.Serial(self.device, self.baudrate, timeout=1) as ser:
